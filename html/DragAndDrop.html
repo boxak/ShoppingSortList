@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        allowDrop = function () {
+            event.preventDefault();
+        };
+
+        dropItem = function () {
+            var _targetEle = event.target;
+            var _id = event.dataTransfer.getData('text');
+            var _moveEle = document.getElementById(_id);
+            _targetEle.before(_moveEle);
+        };
+
+        dragStart = function () {
+            var _thisEle = event.target;
+            var _thisId = _thisEle.id;
+            _thisEle.classList.add('is-dragging');
+            event.dataTransfer.setData('text/plain', _thisId);
+        };
+
+        dragEnd = function () {
+            var _thisEle = event.target;
+            _thisEle.classList.remove('is-dragging');
+        };
+    </script>
+    <style>
+        .item {
+            background: #999;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            color: #fff;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            margin: 0 0 10px;
+        }
+
+        .item.is-dragging {
+            background-color: red;
+        }
+
+        .bucket {
+            display: block;
+            width: 200px;
+            height: 90px;
+            margin: 0 0 18px;
+            border: 1px solid;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test wrap">
+        <div class="drag-items">
+            <span class="item" id="1" ondragstart="dragStart(event);" draggable="true"
+                ondragend="dragEnd(event)">1</span>
+            <span class="item" id="2" ondragstart="dragStart(event);" draggable="true"
+                ondragend="dragEnd(event)">2</span>
+            <span class="item" id="3" ondragstart="dragStart(event);" draggable="true"
+                ondragend="dragEnd(event)">3</span>
+        </div>
+        <div class="bucket" ondragover="allowDrop();" ondrop="dropItem(event);"></div>
+    </div>
+</body>
+
+</html>
