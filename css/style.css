@@ -1,5 +1,42 @@
-#blank-block {
-    height : 50px;
-    width: 100px;
-    background-color: gray;
+.itemClass {
+    border: 1px solid black;
+    width: 300px;
+    text-align: center;
+    position: relative;
+    border-bottom: 2px dotted sienna;
+    background-color: yellow;
+}
+
+ .itemClass .arrow_box {
+    visibility: hidden;
+    width: 200px;
+    background-color: Indigo;
+    color : yellow;
+    text-align: center;
+    border-radius: 10px;
+    padding : 10px 5px;
+    position: absolute;
+    z-index: 1;
+    top : 100%;
+    left : 50%;
+    margin-left: -105px;
+}
+
+.itemClass .arrow_box::after {
+    content : "";
+    position : absolute;
+    bottom : 100%;
+    left : 50%;
+    margin-left : -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent Indigo transparent;
+}
+
+.itemClass:hover .arrow_box {
+    visibility: visible;
+}
+
+.dragging .arrow_box {
+    visibility: hidden;
 }
