@@ -30,7 +30,7 @@ function appendElement(item) {
     var itemId = "itemId" + inx;
     var deleteId = "deleteId" + inx;
 
-    str += "<div class='itemClass' id='" + itemId + "' draggable='true' data-tooltip='"+ item.description +"' data-tooltip-location='right'>"
+    str += "<div class='itemClass' id='" + itemId + "' draggable='true' data-tooltip='"+ item.description +"' data-tooltip-location='bottom'>"
     str += "<img src='" + item.imgUrl + "'>";
     str += "<p>" + item.shopName + "</p>";
     str += "<p>" + item.lowestPrice + "</p>";
@@ -90,3 +90,7 @@ function deleteItem(deleteId) {
     var deleteDom = document.getElementById(deleteId);
     document.getElementById("itemBox").removeChild(deleteDom.parentElement);
 }
+
+window.onload = function() {
+    document.getElementById("itemInput").addEventListener("change", addItem);
+};

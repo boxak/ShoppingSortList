@@ -4,7 +4,7 @@
 
 #itemBox {
   text-align: center;
-  width : 400px;
+  width : 200px;
   margin : 0 auto;
 }
 
@@ -16,6 +16,7 @@
   position: relative;
   width: 100%;
   text-align: center;
+  font-size: 14px;
   z-index: 10;
 }
 
@@ -41,7 +42,7 @@
   width: max-content;
   width: -moz-max-content;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 10px;
   background-color: rgba(59, 72, 80, 0.9);
   background-image: linear-gradient(30deg,
     rgba(59, 72, 80, 0.44),
@@ -375,4 +376,9 @@ button::-moz-focus-inner {
   [data-tooltip]:after {
     border-width: 7px 7px 0px 7px;
   }
+}
+
+img {
+  width : 128px;
+  height: 128px;
 }

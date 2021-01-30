@@ -1,0 +1,26 @@
+{
+    "manifest_version" : 2,
+    "name" : "나만의 쇼핑카트",
+    "version" : "1.0.0",
+
+    "description" : "여러 상품을 옮겨놓고 어떤 것을 살지 한 눈에 볼 수 있는 콘텐츠입니다.",
+    "icons" : {
+        "16" : "img/icon1.png",
+        "48" : "img/icon2.png",
+        "128" : "img/icon3.png"
+
+    },
+    "sidebar_action" : {
+        "default_page" : "html/index.html",
+        "default_icon" : {
+            "16" : "img/icon1.png"
+        },
+        "default_title" : "나만의 쇼핑카트"
+    },
+    "content_scripts" : [{
+        "matches" : ["<all_urls>"],
+        "css" : ["css/style.css"],
+        "js" : ["js/ShopDataSort.js"],
+        "run_at" : "document_start"
+    }]
+}
