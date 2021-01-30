@@ -30,12 +30,11 @@ function appendElement(item) {
     var itemId = "itemId" + inx;
     var deleteId = "deleteId" + inx;
 
-    str += "<div class='itemClass' id='" + itemId + "' draggable='true'>"
+    str += "<div class='itemClass' id='" + itemId + "' draggable='true' data-tooltip='"+ item.description +"' data-tooltip-location='right'>"
     str += "<img src='" + item.imgUrl + "'>";
     str += "<p>" + item.shopName + "</p>";
     str += "<p>" + item.lowestPrice + "</p>";
     str += "<p>" + item.starRate + "</p>";
-    str += "<p class='arrow_box'>" + item.description + "</p>";
     str += "<button class='deleteItem' id='"+ deleteId +"' onclick='deleteItem(this.id)'>아이템 삭제</button>";
     str += "</div>"
 
