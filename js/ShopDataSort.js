@@ -23,6 +23,8 @@ function makeItemHtml(item) {
     mainDom.innerHTML += appendedElem;
 
     addDragEvent();
+    addDeleteEvent();
+    setZIndex();
 }
 
 function appendElement(item) {
@@ -35,7 +37,7 @@ function appendElement(item) {
     str += "<p>" + item.shopName + "</p>";
     str += "<p>" + item.lowestPrice + "</p>";
     str += "<p>" + item.starRate + "</p>";
-    str += "<button class='deleteItem' id='"+ deleteId +"' onclick='deleteItem(this.id)'>아이템 삭제</button>";
+    str += "<button class='deleteItem' id='"+ deleteId +"'>아이템 삭제</button>";
     str += "</div>"
 
     inx++;
@@ -56,6 +58,7 @@ function addDragEvent() {
         draggable.addEventListener("dragend", () => {
             draggable.classList.remove("dragging");
             draggable.classList.add("itemClass");
+            setZIndex();
         });
     });
 
@@ -63,9 +66,9 @@ function addDragEvent() {
         e.preventDefault();
         const afterElement = getDragAfterElement(container, e.clientY);
         const draggable = document.querySelector(".dragging");
-        if (afterElement == null) {
+        if (afterElement == null && draggable != null) {
             container.appendChild(draggable);
-        } else {
+        } else if (draggable!=null && afterElement != null) {
             container.insertBefore(draggable, afterElement);
         }
     });
@@ -85,12 +88,30 @@ function addDragEvent() {
     }
 }
 
-function deleteItem(deleteId) {
-    inx--;
-    var deleteDom = document.getElementById(deleteId);
-    document.getElementById("itemBox").removeChild(deleteDom.parentElement);
+function addDeleteEvent() {
+    const deletables = document.querySelectorAll(".deleteItem");
+
+    deletables.forEach(deletable => {
+        deletable.addEventListener("click", () => {
+            document.getElementById("itemBox").removeChild(deletable.parentElement);
+        });
+    });
 }
+
+// function deleteItem(deleteId) {
+//     inx--;
+//     var deleteDom = document.getElementById(deleteId);
+//     document.getElementById("itemBox").removeChild(deleteDom.parentElement);
+// }
 
 window.onload = function() {
     document.getElementById("itemInput").addEventListener("change", addItem);
 };
+
+function setZIndex() {
+    var doms = document.getElementsByClassName("itemClass");
+    for (var i = 0;i<doms.length;i++) {
+        var dom = doms[i];
+        dom.style.zIndex = doms.length - i;
+    }
+}
