@@ -38,8 +38,8 @@ function appendElement(item) {
     str += "<img src='" + item.imgUrl + "'>";
     str += "</div><div class='infoWrapper'>"
     str += "<p class='info'>" + item.shopName + "</p>";
-    str += "<p class='info'>" + item.lowestPrice + "</p>";
-    str += "<p class='info'>" + item.starRate + "</p>";
+    str += "<p class='info'>최저가 : " + item.lowestPrice + "</p>";
+    str += "<p class='info'>평점 : " + item.starRate + "</p>";
     str += "</div></div>"
     str += "<button class='deleteItem' id='"+ deleteId +"'>아이템 삭제</button>";
     str += "</div>"

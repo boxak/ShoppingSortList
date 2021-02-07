@@ -4,7 +4,7 @@
 
 #itemBox {
   text-align: center;
-  width : 500px;
+  width : 370px;
   margin : 0 auto;
 }
 
@@ -17,6 +17,8 @@
   width: 100%;
   text-align: center;
   font-size: 14px;
+  border : 1px solid black;
+  border-radius: 5px;
   /* z-index: 10; */
 }
 
@@ -403,7 +405,7 @@ img {
 
 .info {
   display: block;
-  width : 200px;
+  width : 180px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
