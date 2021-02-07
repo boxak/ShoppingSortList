@@ -4,7 +4,7 @@
 
 #itemBox {
   text-align: center;
-  width : 200px;
+  width : 500px;
   margin : 0 auto;
 }
 
@@ -379,7 +379,32 @@ button::-moz-focus-inner {
 }
 
 img {
-  width : 128px;
-  height: 128px;
-  z-index: 0;
+  max-width: 100%;
+}
+
+.imgWrapper {
+  float: left;
+  width: 30%;
+  margin-left:30px;
+}
+
+.infoWrapper {
+  float: right;
+  width: 40%;
+  text-align: left;
+  margin-right:30px;
+}
+
+.wrappers {
+  width: 300px;
+  height: 120px;
+  margin : 0 auto;
+}
+
+.info {
+  display: block;
+  width : 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
