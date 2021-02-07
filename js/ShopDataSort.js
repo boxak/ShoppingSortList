@@ -12,7 +12,7 @@ function addItem() {
             document.getElementById("itemInput").value = "";
         }
     }
-    request.open("GET", "http://localhost:8080/parsing?url=" + url, true);
+    request.open("GET", "http://3.34.83.41:8000/parsing?url=" + url, true);
     request.send();
 }
 
