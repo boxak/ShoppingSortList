@@ -10,6 +10,12 @@ function addItem() {
             var obj = JSON.parse(str);
             makeItemHtml(obj);
             document.getElementById("itemInput").value = "";
+            document.getElementById("alarming").textContent = "";
+        } else {
+            document.getElementById("alarming").textContent =
+            "주소가 정확히 입력되지 않았습니다. 다시 확인해주세요";
+            document.getElementById("alarming").style.color = "red";
+            document.getElementById("itemInput").value = "";
         }
     }
     request.open("GET", "http://3.34.83.41:8000/parsing?url=" + url, true);
